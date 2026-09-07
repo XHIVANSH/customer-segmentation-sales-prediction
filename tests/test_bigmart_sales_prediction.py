@@ -91,7 +91,7 @@ def test_build_preprocessor_handles_missing_values(raw_df):
     # the pipeline's imputers handle that without raising.
     X = engineered.drop(columns=["Item_Outlet_Sales"])
     numeric_cols = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
-    categorical_cols = X.select_dtypes(include=["object", "str"]).columns.tolist()
+    categorical_cols = [c for c in X.columns if c not in numeric_cols]
 
     preprocessor = build_preprocessor(numeric_cols, categorical_cols)
     transformed = preprocessor.fit_transform(X)
