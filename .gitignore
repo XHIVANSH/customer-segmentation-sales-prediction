@@ -1,0 +1,27 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Generated outputs (uncomment if you don't want to commit result artifacts)
+# outputs/
+
+# Real Kaggle datasets (uncomment if you swap in the real, larger files)
+# data/Mall_Customers.csv
+# data/bigmart_train.csv
