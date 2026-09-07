@@ -134,6 +134,10 @@ def main():
 
     numeric_cols = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
     categorical_cols = [c for c in X.columns if c not in numeric_cols]
+    # Everything that isn't numeric is treated as categorical. This avoids
+    # select_dtypes(include=["object", "str"]) directly, whose behavior
+    # differs across pandas versions (some raise a TypeError on that combo).
+    categorical_cols = [c for c in X.columns if c not in numeric_cols]
     print(f"\nNumeric features: {numeric_cols}")
     print(f"Categorical features: {categorical_cols}")
 
