@@ -133,7 +133,7 @@ def main():
     y = df[TARGET]
 
     numeric_cols = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
-    categorical_cols = X.select_dtypes(include=["object", "str"]).columns.tolist()
+    categorical_cols = [c for c in X.columns if c not in numeric_cols]
     print(f"\nNumeric features: {numeric_cols}")
     print(f"Categorical features: {categorical_cols}")
 
